@@ -424,9 +424,9 @@ int Negamax(int alpha, int beta, int depth, int cutnode, ThreadData* thread, PV*
     // Improving
     if (ss->ply >= 2) {
       if (ss->ply >= 4 && (ss - 2)->staticEval == UNKNOWN) {
-        improving = ss->staticEval > (ss - 4)->staticEval || (ss - 4)->staticEval == UNKNOWN;
+        improving = ss->staticEval - depth > (ss - 4)->staticEval || (ss - 4)->staticEval == UNKNOWN;
       } else {
-        improving = ss->staticEval > (ss - 2)->staticEval || (ss - 2)->staticEval == UNKNOWN;
+        improving = ss->staticEval - depth > (ss - 2)->staticEval || (ss - 2)->staticEval == UNKNOWN;
       }
     }
   }
